@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//add mechaninc to buffer jump when close to ground
 public class PlayerMovement : MonoBehaviour
 {
 
@@ -24,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     BoxCollider2D boxCollider;
     [SerializeField]
     float groundCastLength = 1f;
+    [SerializeField]
+    float boxCastOffset = 0.5f;
 
     Rigidbody2D rigidbody;
     // Start is called before the first frame update
@@ -65,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void MoveY(bool jump = false)
     {
-        bool onGround = Physics2D.BoxCast(transform.position, new Vector2(boxCollider.size.x, groundCastLength), 0, Vector2.down, layerMask);
+        bool onGround = Physics2D.BoxCast(new Vector3(transform.position.x, transform.position.y + boxCastOffset), new Vector2(boxCollider.size.x, groundCastLength), 0, Vector2.down, layerMask);
         if (onGround)
         {
             cayoteTimer = cayoteTime;

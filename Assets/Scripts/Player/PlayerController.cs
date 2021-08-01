@@ -30,9 +30,9 @@ public class PlayerController : MonoBehaviour
         fireAction.started += StartFire;
         fireAction.canceled += CancelFire;
 
-        fireAction = playerInput.currentActionMap.FindAction("Interact");
-        fireAction.started += StartInteract;
-        fireAction.canceled += CancelInteract;
+        interactAction = playerInput.currentActionMap.FindAction("Interact");
+        interactAction.started += StartInteract;
+        interactAction.canceled += CancelInteract;
     }
 
     private void Update()

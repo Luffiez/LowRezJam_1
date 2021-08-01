@@ -64,7 +64,7 @@
                 {
                     "name": "Keyboard",
                     "id": "0fa578d2-87a5-42b8-90d9-cb70ee5aecdd",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=2)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

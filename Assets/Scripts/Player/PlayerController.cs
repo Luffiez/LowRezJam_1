@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    PlayerMovement playerMovement;
+
     PlayerInput playerInput;
     InputAction moveAction;
     InputAction jumpAction;
@@ -19,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        playerMovement = GetComponent<PlayerMovement>();
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.currentActionMap.FindAction("Move");
 
@@ -35,12 +38,13 @@ public class PlayerController : MonoBehaviour
         interactAction.canceled += CancelInteract;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         moveInput = moveAction.ReadValue<Vector2>();
 
-        // playerMovement.Move(moveInput.x);
-        // playerMovement.Jump(jump);
+        playerMovement.MoveX(moveInput.x);
+        playerMovement.MoveY(jump);
+        
         // playerFire.Fire(fire);
     }
 

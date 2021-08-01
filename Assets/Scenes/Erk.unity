@@ -270,7 +270,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.08, y: 0.08}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -299,10 +299,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1104718701}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c04e466407fe41428e5680a78c661f9, type: 3}
+  m_Script: {fileID: 11500000, guid: ea151c11d6965a44d85f9b269d79f3be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveInput: {x: 0, y: 0}
+  jump: 0
+  fire: 0
+  interact: 0
 --- !u!114 &1104718705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,6 +343,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 3cb69166-f614-404b-88a8-2e4ff95a8c83
     m_ActionName: Game/Move[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 077515c5-8963-4679-9e11-9eab7c4ba569
+    m_ActionName: Game/Interact[/Keyboard/h]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Game

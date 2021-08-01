@@ -275,7 +275,8 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  groundCastLength: 1.1
+  groundCastLength: 0.2
+  boxCastOffset: -0.5
 --- !u!1 &854681153
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,6 +479,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4283485372669209145, guid: 082e18dae3bb99846beb3c3d59a61fc2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859034480091127637, guid: 082e18dae3bb99846beb3c3d59a61fc2, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

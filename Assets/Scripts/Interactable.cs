@@ -19,10 +19,10 @@ public class Interactable : MonoBehaviour
 
     private void OnEnable()
     {
-        if (playerController)
-            playerController.InteractEvent.AddListener(Interact);
-        else
+        if (!playerController)
             playerController = FindObjectOfType<PlayerController>();
+        
+        playerController.InteractEvent.AddListener(TryInteract);
     }
 
     private void OnDisable()
@@ -34,6 +34,12 @@ public class Interactable : MonoBehaviour
         }
         if (playerController)
             playerController.InteractEvent.RemoveListener(Interact);
+    }
+
+    private void TryInteract()
+    {
+        if (isInteractable)
+            Interact();
     }
 
     protected virtual void Interact()

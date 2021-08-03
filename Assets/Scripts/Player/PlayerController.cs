@@ -53,7 +53,10 @@ public class PlayerController : MonoBehaviour
     private void PerformedInteraction(InputAction.CallbackContext obj)
     {
         if(InteractEvent != null)
+        {
+            Debug.Log("Interact");
             InteractEvent.Invoke();
+        }
     }
 
     private void CancelFire(InputAction.CallbackContext obj)

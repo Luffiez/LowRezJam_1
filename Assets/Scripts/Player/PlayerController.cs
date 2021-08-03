@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
@@ -17,7 +18,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 moveInput;
     public bool jump;
     public bool fire;
-    public bool interact;
+    public UnityEvent InteractEvent = new UnityEvent();
 
     private void Awake()
     {
@@ -34,8 +35,7 @@ public class PlayerController : MonoBehaviour
         fireAction.canceled += CancelFire;
 
         interactAction = playerInput.currentActionMap.FindAction("Interact");
-        interactAction.started += StartInteract;
-        interactAction.canceled += CancelInteract;
+        interactAction.performed += PerformedInteraction;
     }
 
     private void FixedUpdate()
@@ -49,14 +49,11 @@ public class PlayerController : MonoBehaviour
     }
 
     #region Input Callbacks
-    private void CancelInteract(InputAction.CallbackContext obj)
-    {
-        interact = false;
-    }
 
-    private void StartInteract(InputAction.CallbackContext obj)
+    private void PerformedInteraction(InputAction.CallbackContext obj)
     {
-        interact = true;
+        if(InteractEvent != null)
+            InteractEvent.Invoke();
     }
 
     private void CancelFire(InputAction.CallbackContext obj)

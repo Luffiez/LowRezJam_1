@@ -24,8 +24,6 @@ public class Room : MonoBehaviour
 [System.Serializable]
 public class RoomCameraSettings
 {
-    [Tooltip("The Smallest and larget x-values on the map.")]
-    public float minX, maxX;
-    [Tooltip("The Smallest and larget y-values on the map.")]
-    public float minY, maxY;
+    [Tooltip("The values for the rooms edges. Used for camera clamping.")]
+    public float leftEdge, rightEdge, bottomEdge, topEdge;
 }

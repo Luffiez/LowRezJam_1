@@ -12,7 +12,7 @@ public class GameCamera : MonoBehaviour
     public Vector2 freeRoamBox = Vector2.one;
 
 	Vector2 targetPosition;
-	Room currentRoom;
+	RoomManager roomManager;
 
     void Start()
     {
@@ -22,29 +22,29 @@ public class GameCamera : MonoBehaviour
 		}
 
 		if(RoomManager.instance)
-			currentRoom = RoomManager.instance.currentRoom;
+			roomManager = RoomManager.instance;
 	}
 
     private void Update()
     {
 		if (player != null)
 		{
-			Vector2 newPositions = transform.position;
+			//Vector2 newPosition = transform.position;
 			if(NeedsNewXPosition())
             {
-				newPositions.x = player.position.x + offset.x;
+				targetPosition.x = player.position.x + offset.x;
             }
 			if(NeedsNewYPosition())
             {
-				newPositions.y = player.position.y + offset.y;
-			}
-			targetPosition = ClampToRoom(newPositions);
+				targetPosition.y = player.position.y + offset.y;
+			}	
 		}
 	}
 
 	void LateUpdate()
 	{
 		transform.position = Vector2.Lerp(transform.position, targetPosition, Time.deltaTime * followSpeed);
+		ClampToRoom();
 	}
 
 	private bool NeedsNewXPosition()
@@ -69,12 +69,23 @@ public class GameCamera : MonoBehaviour
 		return false;
     }
 
-	Vector2 ClampToRoom(Vector2 vec)
+	void ClampToRoom()
     {
+		Vector2 vec = transform.position;
 		// TODO: read Tilemap values, largest/smallest y/x tile positions instead?
-		vec.x = Mathf.Clamp(vec.x, currentRoom.roomCameraSettings.minX, currentRoom.roomCameraSettings.maxX);
-		vec.y = Mathf.Clamp(vec.y, currentRoom.roomCameraSettings.minY, currentRoom.roomCameraSettings.maxY);
-		return vec;
+
+		// adding/subtracting 4 to each side since camera transform is in the center, edges will be +/- 4.
+		if (vec.x - 4 < roomManager.currentRoom.roomCameraSettings.leftEdge)
+			vec.x = roomManager.currentRoom.roomCameraSettings.leftEdge + 4;
+		else if (vec.x + 4 > roomManager.currentRoom.roomCameraSettings.rightEdge)
+			vec.x = roomManager.currentRoom.roomCameraSettings.rightEdge - 4;
+
+        if (vec.y - 4 < roomManager.currentRoom.roomCameraSettings.bottomEdge)
+            vec.y = roomManager.currentRoom.roomCameraSettings.bottomEdge + 4;
+        else if (vec.y + 4 > roomManager.currentRoom.roomCameraSettings.topEdge)
+            vec.y = roomManager.currentRoom.roomCameraSettings.topEdge - 4;
+
+		transform.position = vec;
 	}
 
     private void OnDrawGizmosSelected()

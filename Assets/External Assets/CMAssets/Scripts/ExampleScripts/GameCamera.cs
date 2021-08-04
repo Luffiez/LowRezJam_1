@@ -10,6 +10,7 @@ public class GameCamera : MonoBehaviour
 	public Transform player;
 	public Vector2 offset = Vector2.zero;
     public Vector2 freeRoamBox = Vector2.one;
+	public bool followPlayer = true;
 
 	Vector2 targetPosition;
 	RoomManager roomManager;
@@ -43,8 +44,11 @@ public class GameCamera : MonoBehaviour
 
 	void LateUpdate()
 	{
-		transform.position = Vector2.Lerp(transform.position, targetPosition, Time.deltaTime * followSpeed);
-		ClampToRoom();
+		if(followPlayer)
+        {
+			transform.position = Vector2.Lerp(transform.position, targetPosition, Time.deltaTime * followSpeed);
+			ClampToRoom();
+        }
 	}
 
 	private bool NeedsNewXPosition()

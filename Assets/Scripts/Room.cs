@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-
+    public RoomCameraSettings roomCameraSettings;
     // List<Enemy>
 
     internal void Show()
@@ -19,4 +19,11 @@ public class Room : MonoBehaviour
     {
         // TODO: foreach(enemy) => enemy.Reset();
     }
+}
+
+[System.Serializable]
+public class RoomCameraSettings
+{
+    [Tooltip("The values for the rooms edges. Used for camera clamping.")]
+    public float leftEdge, rightEdge, bottomEdge, topEdge;
 }

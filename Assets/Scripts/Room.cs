@@ -1,9 +1,15 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Room : MonoBehaviour
 {
     public RoomCameraSettings roomCameraSettings;
-    // List<Enemy>
+    List<Entity> entities = new List<Entity>();
+
+    private void Start()
+    {
+        entities.AddRange(GetComponentsInChildren<Entity>());
+    }
 
     internal void Show()
     {
@@ -12,12 +18,16 @@ public class Room : MonoBehaviour
 
     internal void Hide()
     {
+        ResetRoomEntities();
         gameObject.SetActive(false);
     }
 
     private void ResetRoomEntities()
     {
-        // TODO: foreach(enemy) => enemy.Reset();
+        foreach (Entity entity in entities)
+        {
+            entity.ResetEntity();
+        }
     }
 }
 

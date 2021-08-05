@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     InputAction fireAction;
     InputAction interactAction;
 
+    public bool canMove = true;
+
     public Vector2 moveInput;
     public bool jump;
     public bool fire;
@@ -40,6 +42,13 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!canMove)
+        {
+            if (moveInput != Vector2.zero)
+                moveInput = Vector2.zero;
+            return;
+        }
+
         moveInput = moveAction.ReadValue<Vector2>();
 
         playerMovement.MoveX(moveInput.x);

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[ExecuteAlways]
 public class GameCamera : MonoBehaviour
 {
 	public float followSpeed = 1.5f;

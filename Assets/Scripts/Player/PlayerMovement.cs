@@ -29,13 +29,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float boxCastOffset = 0.5f;
 
-    Rigidbody2D rigidbody;
+    bool isFacingLeft = false;
+
+    SpriteRenderer spriteRenderer;
+    Rigidbody2D rb;
+
+    public bool IsFacingLeft { get => isFacingLeft; }
+
     // Start is called before the first frame update
     void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
-        rigidbody = GetComponent<Rigidbody2D>();
-        rigidbody.velocity = Vector2.zero;
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
+        rb.velocity = Vector2.zero;
     }
 
     public void MoveY(bool jump = false)
@@ -52,17 +59,17 @@ public class PlayerMovement : MonoBehaviour
         }
         if (jump == true && cayoteTimer >0)
         {
-            rigidbody.velocity = new Vector2(rigidbody.velocity.x, (2 * JumpHeight) / JumpTime);
+            rb.velocity = new Vector2(rb.velocity.x, (2 * JumpHeight) / JumpTime);
         }
         else
         {
-            if (rigidbody.velocity.y < 0)
+            if (rb.velocity.y < 0)
             {
-                rigidbody.velocity = new Vector2(rigidbody.velocity.x, rigidbody.velocity.y + (gravity * fallMultiplier * Time.fixedDeltaTime));
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + (gravity * fallMultiplier * Time.fixedDeltaTime));
             }
             else
             {
-                rigidbody.velocity = new Vector2(rigidbody.velocity.x, rigidbody.velocity.y + (gravity * Time.fixedDeltaTime));
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + (gravity * Time.fixedDeltaTime));
             }
         }
         
@@ -70,6 +77,16 @@ public class PlayerMovement : MonoBehaviour
 
     public void MoveX(float direction)
     {
-        rigidbody.velocity = new Vector2(VelocityX * direction, rigidbody.velocity.y);
+        rb.velocity = new Vector2(VelocityX * direction, rb.velocity.y);
+
+        if (direction > 0 && IsFacingLeft ||
+            direction < 0 && !IsFacingLeft)
+            FlipX();
+    }
+
+    void FlipX()
+    {
+        isFacingLeft = !isFacingLeft;
+        spriteRenderer.flipX = isFacingLeft;
     }
 }

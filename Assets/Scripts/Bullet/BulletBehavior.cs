@@ -14,20 +14,18 @@ public class BulletBehavior : MonoBehaviour
     Collider2D collider2D;
     [SerializeField]
     GameObject InteractOject;
-    [SerializeField]
-    float ShootInterval;
-    [SerializeField]
-    float ShootTimer;
     Vector2 velocity;
+
     // Start is called before the first frame update
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         collider2D = GetComponent<Collider2D>();
     }
-
+   
     public void SetDirection(float _direction)
     {
+        HitWall = false;
         InteractOject.SetActive(false);
         collider2D.isTrigger = true;
         velocity = new Vector2(speedX * _direction, 0);   

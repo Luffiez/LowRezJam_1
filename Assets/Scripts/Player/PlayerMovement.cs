@@ -49,6 +49,14 @@ public class PlayerMovement : MonoBehaviour
     {
         gravity = ((-2 * JumpHeight) / (JumpTime * JumpTime));
         bool onGround = Physics2D.BoxCast(new Vector3(transform.position.x, transform.position.y + boxCastOffset), new Vector2(boxCollider.size.x, groundCastLength), 0, Vector2.down, layerMask);
+        if (Jumping == true && onGround)
+        {
+            Jumping = false;
+        }
+        else if (Jumping && jump == false && rb.velocity.y > 0)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+        }
         if (onGround)
         {
             cayoteTimer = cayoteTime;
@@ -57,8 +65,9 @@ public class PlayerMovement : MonoBehaviour
         {
             cayoteTimer -= Time.deltaTime;
         }
-        if (jump == true && cayoteTimer >0)
+        if (jump == true && cayoteTimer >0 && Jumping == false)
         {
+            Jumping = true;
             rb.velocity = new Vector2(rb.velocity.x, (2 * JumpHeight) / JumpTime);
         }
         else

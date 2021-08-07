@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
 
     bool isFacingLeft = false;
 
+    public bool FacingLeft { get { return IsFacingLeft; } }
+
     SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
 

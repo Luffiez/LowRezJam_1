@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     PlayerMovement playerMovement;
+    PlayerShoot playerShoot;
 
     PlayerInput playerInput;
     InputAction moveAction;
@@ -26,6 +27,8 @@ public class PlayerController : MonoBehaviour
     {
         playerMovement = GetComponent<PlayerMovement>();
         playerInput = GetComponent<PlayerInput>();
+        playerShoot = GetComponent<PlayerShoot>();
+
         moveAction = playerInput.currentActionMap.FindAction("Move");
 
         jumpAction = playerInput.currentActionMap.FindAction("Jump");
@@ -53,6 +56,7 @@ public class PlayerController : MonoBehaviour
 
         playerMovement.MoveX(moveInput.x);
         playerMovement.MoveY(jump);
+        playerShoot.Shoot(fire);
         
         // playerFire.Fire(fire);
     }

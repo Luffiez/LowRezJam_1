@@ -18,6 +18,7 @@ public class Room : MonoBehaviour
 
     internal void Hide()
     {
+        transform.position = new Vector2(0, 0);
         ResetRoomEntities();
         gameObject.SetActive(false);
     }

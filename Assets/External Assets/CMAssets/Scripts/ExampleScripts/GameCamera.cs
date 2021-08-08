@@ -58,6 +58,11 @@ public class GameCamera : MonoBehaviour
 		return false;
 	}
 
+    public void SetCameraAtTargetPosition()
+    {
+        transform.position = targetPosition;
+    }
+
 	bool NeedsNewYPosition()
     {
 		float yDiff = Mathf.Abs(transform.position.y - (player.position.y + offset.y));

@@ -74,6 +74,9 @@ TextureImporter:
   - first:
       213: 1878136877192647260
     second: Icon_bullet
+  - first:
+      213: -7148904728835544716
+    second: Bullet
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -686,6 +689,27 @@ TextureImporter:
       bones: []
       spriteID: c5211acf98b701a10800000000000000
       internalID: 1878136877192647260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 479a5a0960df9cc90800000000000000
+      internalID: -7148904728835544716
       vertices: []
       indices: 
       edges: []

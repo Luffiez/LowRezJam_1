@@ -1,12 +1,15 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomManager : MonoBehaviour
 {
     public static RoomManager instance = null;
-    Transform playerTransform;
+    public float animationSpeed = 2f;
     public Room currentRoom;
+    Transform playerTransform;
     List<Room> rooms = new List<Room>();
+    GameCamera gameCamera;
 
     private void Awake()
     {
@@ -15,17 +18,47 @@ public class RoomManager : MonoBehaviour
         else
             Destroy(gameObject);
 
+        gameCamera = FindObjectOfType<GameCamera>();
+
         rooms.AddRange(GetComponentsInChildren<Room>());
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     public void LoadRoom(DoorConnection doorConnection)
     {
+        StartCoroutine(LoadRoomAnimation(doorConnection));
+    }
+
+    IEnumerator LoadRoomAnimation(DoorConnection doorConnection)
+    {
+        float xOffset = GetXOffsetToNewRoom(currentRoom, doorConnection.otherRoom, doorConnection.connectionIsToTheLeft);
+        float yOffset = playerTransform.position.y - doorConnection.otherDoor.transform.position.y;
+        Vector2 targetPos = new Vector2(xOffset, yOffset);
+        doorConnection.otherRoom.transform.position = targetPos;
         doorConnection.otherRoom.Show();
+        playerTransform.gameObject.SetActive(false);
+
+        ScreenFade.instance.Fade(1);
+
+        yield return new WaitForSeconds(1f);
+        gameCamera.SetCameraAtTargetPosition();
+        doorConnection.otherDoor.Unlock();
         playerTransform.position = doorConnection.otherDoor.transform.position;
         currentRoom.Hide();
         currentRoom = doorConnection.otherRoom;
+        playerTransform.gameObject.SetActive(true);
 
-        // TODO: play fancy transition animation.
+        ScreenFade.instance.Fade(-1);
+    }
+
+    float GetXOffsetToNewRoom(Room room, Room otherRoom, bool isToTheLeft)
+    {
+        float offset = 0;
+        if(isToTheLeft)
+            offset = room.roomCameraSettings.leftEdge - otherRoom.roomCameraSettings.rightEdge;
+        else
+            offset = room.roomCameraSettings.rightEdge + otherRoom.roomCameraSettings.leftEdge;
+
+        return offset;
     }
 }

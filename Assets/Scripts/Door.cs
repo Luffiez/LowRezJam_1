@@ -31,24 +31,31 @@ public class Door : Interactable
 
         if (isLocked)
         {
-            Unlock();
+            UnlockAndShowText();
         }
         else
             EnterDoor();
     }
 
-    void Unlock()
+    public void Unlock()
     {
-        if(requiresKey )// && !player.HasKey)
+        doorRenderer.sprite = unlockedSprite;
+        isLocked = false;
+    }
+
+    void UnlockAndShowText()
+    {
+        if (requiresKey)// && !player.HasKey)
         {
             Show(lockedText);
             return;
         }
 
-        doorRenderer.sprite = unlockedSprite;
-        isLocked = false;
+        Unlock();
+
         Show(unlockedText);
     }
+
 
     void EnterDoor()
     {
@@ -67,4 +74,5 @@ public class DoorConnection
 {
     public Room otherRoom;
     public Door otherDoor;
+    public bool connectionIsToTheLeft;
 }

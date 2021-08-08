@@ -18,10 +18,11 @@ public class PlayerStats : MonoBehaviour
                 statsUI.SetPlayerHealthUI(currentHealth, maxHealth);
         }
     }
+
     public int CurrentBullets 
     { 
         get => currentBullets; 
-        private set 
+        set 
         { 
             currentBullets = value;
             if (statsUI)

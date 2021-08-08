@@ -21,6 +21,8 @@ public class PlayerShoot : MonoBehaviour
     float shootTime = 0.5f;
     float ShootTimer = 0;
     List<GameObject> bulletList = new List<GameObject>();
+    bool holdingFire = false; 
+
 
     private void Start()
     {
@@ -34,8 +36,12 @@ public class PlayerShoot : MonoBehaviour
     }
     public void Shoot(bool fire)
     {
+        if (!fire)
+        {
+            holdingFire = false;
+        }
         ShootTimer -= Time.fixedDeltaTime;
-        if (!fire) return;
+        if (!fire || holdingFire ) return;
         int bulletIndex = -1;
         for (int i = 0; i < bulletList.Count; i++)
         {
@@ -56,6 +62,7 @@ public class PlayerShoot : MonoBehaviour
         bullet.SetActive(true);
         bullet.transform.position = spawnPosition;
         bullet.GetComponent<BulletBehavior>().SetDirection(faceLeft ? -1 : 1);
+        holdingFire = true;
         //boxcast to see if the player can shoot;
     }
 

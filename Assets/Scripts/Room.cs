@@ -24,6 +24,7 @@ public class Room : MonoBehaviour
 
     private void ResetRoomEntities()
     {
+        Debug.LogError("Reset Enteties");
         foreach (Entity entity in entities)
         {
             entity.ResetEntity();

@@ -7,7 +7,7 @@ public class RoomManager : MonoBehaviour
     Transform playerTransform;
     public Room currentRoom;
     List<Room> rooms = new List<Room>();
-
+    PlayerShoot playerShoot;
     private void Awake()
     {
         if (instance == null)
@@ -17,6 +17,7 @@ public class RoomManager : MonoBehaviour
 
         rooms.AddRange(GetComponentsInChildren<Room>());
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        playerShoot = playerTransform.gameObject.GetComponent<PlayerShoot>();
     }
 
     public void LoadRoom(DoorConnection doorConnection)
@@ -25,6 +26,7 @@ public class RoomManager : MonoBehaviour
         playerTransform.position = doorConnection.otherDoor.transform.position;
         currentRoom.Hide();
         currentRoom = doorConnection.otherRoom;
+        playerShoot.DisableBullets();
 
         // TODO: play fancy transition animation.
     }

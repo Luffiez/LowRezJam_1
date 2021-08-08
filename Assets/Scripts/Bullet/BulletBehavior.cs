@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletBehavior : MonoBehaviour
+public class BulletBehavior : Entity
 {
     float direction;
     [SerializeField]
@@ -48,4 +48,11 @@ public class BulletBehavior : MonoBehaviour
             HitWall = true;
         }
     }
+
+    public override void ResetEntity()
+    {
+        Debug.Log("Reset");
+        gameObject.SetActive(false);
+    }
+
 }

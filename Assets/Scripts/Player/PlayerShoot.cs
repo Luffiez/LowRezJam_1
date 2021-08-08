@@ -59,6 +59,13 @@ public class PlayerShoot : MonoBehaviour
         //boxcast to see if the player can shoot;
     }
 
+    public void DisableBullets() 
+    {
+        for (int i = 0; i < bulletList.Count; i++)
+        {
+            bulletList[i].SetActive(false);
+        }
+    } 
     public void OnDrawGizmos()
     {
         if (playerMovement == null) return;

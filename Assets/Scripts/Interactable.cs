@@ -12,7 +12,7 @@ public class Interactable : Entity
 
     PlayerController playerController;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         interactableUI = FindObjectOfType<InteractableUI>();
     }

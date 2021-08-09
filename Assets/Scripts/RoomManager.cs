@@ -31,22 +31,22 @@ public class RoomManager : MonoBehaviour
 
     IEnumerator LoadRoomAnimation(DoorConnection doorConnection)
     {
-        float xOffset = GetXOffsetToNewRoom(currentRoom, doorConnection.otherRoom, doorConnection.connectionIsToTheLeft);
-        float yOffset = playerTransform.position.y - doorConnection.otherDoor.transform.position.y;
-        Vector2 targetPos = new Vector2(xOffset, yOffset);
-        doorConnection.otherRoom.transform.position = targetPos;
-        doorConnection.otherRoom.Show();
-        playerTransform.gameObject.SetActive(false);
-
+        //float xOffset = GetXOffsetToNewRoom(currentRoom, doorConnection.otherRoom, doorConnection.connectionIsToTheLeft);
+        //float yOffset = playerTransform.position.y - doorConnection.otherDoor.transform.position.y;
+        //Vector2 targetPos = new Vector2(xOffset, yOffset);
+        //doorConnection.otherRoom.transform.position = targetPos;
         ScreenFade.instance.Fade(1);
+        yield return new WaitForSeconds(0.5f);
+        doorConnection.otherRoom.Show();
 
-        yield return new WaitForSeconds(1f);
+
+        playerTransform.position = doorConnection.otherDoor.transform.position;
         gameCamera.SetCameraAtTargetPosition();
         doorConnection.otherDoor.Unlock();
-        playerTransform.position = doorConnection.otherDoor.transform.position;
+        doorConnection.otherRoom.entryPoint = doorConnection.otherDoor.transform;
         currentRoom.Hide();
         currentRoom = doorConnection.otherRoom;
-        playerTransform.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
 
         ScreenFade.instance.Fade(-1);
     }

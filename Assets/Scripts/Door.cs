@@ -12,8 +12,9 @@ public class Door : Interactable
 
     SpriteRenderer doorRenderer;
 
-    private void Start()
-    {  
+    protected override void Awake()
+    {
+        base.Awake();
         doorRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
@@ -39,6 +40,9 @@ public class Door : Interactable
 
     public void Unlock()
     {
+        if(!doorRenderer)
+            doorRenderer = GetComponentInChildren<SpriteRenderer>();
+
         doorRenderer.sprite = unlockedSprite;
         isLocked = false;
     }

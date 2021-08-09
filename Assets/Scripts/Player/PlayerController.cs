@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
     {
         if(InteractEvent != null)
         {
-            Debug.Log("Interact");
+            //Debug.Log("Interact");
             InteractEvent.Invoke();
         }
     }

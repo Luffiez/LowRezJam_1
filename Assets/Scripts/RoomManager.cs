@@ -9,7 +9,9 @@ public class RoomManager : MonoBehaviour
     public Room currentRoom;
     Transform playerTransform;
     List<Room> rooms = new List<Room>();
+
     GameCamera gameCamera;
+    PlayerShoot playerShoot;
 
     private void Awake()
     {
@@ -22,6 +24,7 @@ public class RoomManager : MonoBehaviour
 
         rooms.AddRange(GetComponentsInChildren<Room>());
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        playerShoot = playerTransform.gameObject.GetComponent<PlayerShoot>();
     }
 
     public void LoadRoom(DoorConnection doorConnection)
@@ -46,6 +49,7 @@ public class RoomManager : MonoBehaviour
         doorConnection.otherRoom.entryPoint = doorConnection.otherDoor.transform;
         currentRoom.Hide();
         currentRoom = doorConnection.otherRoom;
+        playerShoot.DisableBullets();
         yield return new WaitForSeconds(0.5f);
 
         ScreenFade.instance.Fade(-1);

@@ -12,8 +12,9 @@ public class Door : Interactable
 
     SpriteRenderer doorRenderer;
 
-    private void Start()
-    {  
+    protected override void Awake()
+    {
+        base.Awake();
         doorRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
@@ -31,24 +32,34 @@ public class Door : Interactable
 
         if (isLocked)
         {
-            Unlock();
+            UnlockAndShowText();
         }
         else
             EnterDoor();
     }
 
-    void Unlock()
+    public void Unlock()
     {
-        if(requiresKey )// && !player.HasKey)
+        if(!doorRenderer)
+            doorRenderer = GetComponentInChildren<SpriteRenderer>();
+
+        doorRenderer.sprite = unlockedSprite;
+        isLocked = false;
+    }
+
+    void UnlockAndShowText()
+    {
+        if (requiresKey)// && !player.HasKey)
         {
             Show(lockedText);
             return;
         }
 
-        doorRenderer.sprite = unlockedSprite;
-        isLocked = false;
+        Unlock();
+
         Show(unlockedText);
     }
+
 
     void EnterDoor()
     {
@@ -67,4 +78,5 @@ public class DoorConnection
 {
     public Room otherRoom;
     public Door otherDoor;
+    public bool connectionIsToTheLeft;
 }

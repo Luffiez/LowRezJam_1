@@ -18,10 +18,11 @@ public class PlayerStats : MonoBehaviour
                 statsUI.SetPlayerHealthUI(currentHealth, maxHealth);
         }
     }
+
     public int CurrentBullets 
     { 
         get => currentBullets; 
-        private set 
+        set 
         { 
             currentBullets = value;
             if (statsUI)
@@ -48,7 +49,10 @@ public class PlayerStats : MonoBehaviour
             Debug.Log("Player Died.");
 
             // TODO: reload scene from somewhere else? Play death animation/sound?
-            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+            RoomManager.instance.currentRoom.Reset();
+            CurrentHealth = maxHealth;
+            CurrentBullets = maxBullets;
+            //UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
         }
     }
 

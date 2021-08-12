@@ -61,7 +61,7 @@ TextureImporter:
     second: Player_Idle
   - first:
       213: 1455151499766638799
-    second: Door_Locked
+    second: Door_locked
   - first:
       213: -7618264525550213675
     second: Door_Unlocked
@@ -76,10 +76,34 @@ TextureImporter:
     second: Icon_bullet
   - first:
       213: -7148904728835544716
-    second: Door_Locked_Soul
+    second: Bullet_1
   - first:
       213: 7682294919901335066
-    second: Door_Unlocked_Soul
+    second: Bullet_2
+  - first:
+      213: -8475286649672072760
+    second: Bullet_3
+  - first:
+      213: 2654019576221238413
+    second: Acid
+  - first:
+      213: 3303711320867498566
+    second: Dust_1
+  - first:
+      213: -4795117150097686036
+    second: Dust_2
+  - first:
+      213: 6435357215950958870
+    second: Dust_3
+  - first:
+      213: -3396770047984328660
+    second: Dust_4
+  - first:
+      213: -5042348559688654611
+    second: Dust_5
+  - first:
+      213: 5110562529025158123
+    second: Dust_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -592,7 +616,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Door_Locked
+      name: Door_locked
       rect:
         serializedVersion: 2
         x: 24
@@ -697,15 +721,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Door_Locked_Soul
+      name: Bullet_1
       rect:
         serializedVersion: 2
-        x: 40
-        y: 40
+        x: 0
+        y: 24
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -718,11 +742,137 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Door_Unlocked_Soul
+      name: Bullet_2
       rect:
         serializedVersion: 2
-        x: 48
-        y: 40
+        x: 8
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1ec180f68efc9a60800000000000000
+      internalID: 7682294919901335066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet_3
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c18fa432bbb16a80800000000000000
+      internalID: -8475286649672072760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Acid
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8489933eb8f4d420800000000000000
+      internalID: 2654019576221238413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64a6eb841f329dd20800000000000000
+      internalID: 3303711320867498566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_2
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce14b0c8b52547db0800000000000000
+      internalID: -4795117150097686036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_3
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 611f08bba4bfe4950800000000000000
+      internalID: 6435357215950958870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_4
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 16
         width: 8
         height: 8
       alignment: 0
@@ -732,8 +882,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1ec180f68efc9a60800000000000000
-      internalID: 7682294919901335066
+      spriteID: c20253263af3cd0d0800000000000000
+      internalID: -3396770047984328660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de02e0253baf50ab0800000000000000
+      internalID: -5042348559688654611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dust_6
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beb67f01b8d5ce640800000000000000
+      internalID: 5110562529025158123
       vertices: []
       indices: 
       edges: []

@@ -33,7 +33,7 @@ public class Door : Interactable
 
     protected override void Interact()
     {
-        Debug.Log("Interact with door");
+        //Debug.Log("Interact with door");
 
         if (isLocked)
         {

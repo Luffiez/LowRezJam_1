@@ -49,8 +49,6 @@ public class Room : MonoBehaviour
 
     private void ResetRoomEntities()
     {
-        Debug.LogError("Reset Enteties");
-
         // make sure entity list does not have any items that are null.
         entities.RemoveAll(item => item == null);
         foreach (Entity entity in entities)

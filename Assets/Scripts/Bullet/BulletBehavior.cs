@@ -37,7 +37,7 @@ public class BulletBehavior : Entity
         HitWall = false;
         hitFloor = false;
         boxCollider.isTrigger = true;
-        animator.SetBool("Grow", false);
+        animator.SetBool("Grow", true);
         InteractOject.SetActive(false);
         velocity = new Vector2(speedX * _direction, 0);   
     }
@@ -70,7 +70,7 @@ public class BulletBehavior : Entity
         {
             HitWall = true;
             boxCollider.isTrigger = false;
-            animator.SetBool("Grow", true);
+            //animator.SetBool("Grow", true);
 
             velocity = new Vector2(0, 0);
             Invoke("FallDown", 0.5f);
@@ -94,6 +94,8 @@ public class BulletBehavior : Entity
     public override void ResetEntity()
     {
         Debug.Log("Reset");
+        animator.SetBool("Grow", false);
+
         gameObject.SetActive(false);
     }
 

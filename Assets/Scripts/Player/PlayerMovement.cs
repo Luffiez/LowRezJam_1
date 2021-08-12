@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool FacingLeft { get { return IsFacingLeft; } }
 
+    Animator anim;
     SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
 
@@ -41,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
@@ -83,13 +85,13 @@ public class PlayerMovement : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + (gravity * Time.fixedDeltaTime));
             }
         }
-        
+        anim.SetBool("Jump", Jumping);
     }
 
     public void MoveX(float direction)
     {
         rb.velocity = new Vector2(VelocityX * direction, rb.velocity.y);
-
+        anim.SetInteger("Speed", Mathf.RoundToInt(rb.velocity.x));
         if (direction > 0 && IsFacingLeft ||
             direction < 0 && !IsFacingLeft)
             FlipX();

@@ -5,10 +5,31 @@ public class Room : MonoBehaviour
 {
     public RoomCameraSettings roomCameraSettings;
     List<Entity> entities = new List<Entity>();
+    List<Enemy> enemies = new List<Enemy>();
 
-    private void Start()
+    public List<Enemy> Enemies { get => enemies; }
+
+    private void Awake()
     {
         entities.AddRange(GetComponentsInChildren<Entity>());
+        foreach (Entity entity in entities)
+        {
+            if(entity is Enemy)
+            {
+                Enemies.Add(entity as Enemy);
+            }
+        }
+    }
+
+    public int EnemiesAlive()
+    {
+        int amount = enemies.Count;
+        foreach (Enemy enemy in enemies)
+        {
+            if (!enemy.gameObject.activeSelf)
+                amount--;
+        }
+        return amount;
     }
 
     internal void Show()

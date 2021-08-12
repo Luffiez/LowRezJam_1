@@ -61,7 +61,7 @@ TextureImporter:
     second: Player_Idle
   - first:
       213: 1455151499766638799
-    second: Door_locked
+    second: Door_Locked
   - first:
       213: -7618264525550213675
     second: Door_Unlocked
@@ -74,6 +74,12 @@ TextureImporter:
   - first:
       213: 1878136877192647260
     second: Icon_bullet
+  - first:
+      213: -7148904728835544716
+    second: Door_Locked_Soul
+  - first:
+      213: 7682294919901335066
+    second: Door_Unlocked_Soul
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -586,7 +592,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Door_locked
+      name: Door_Locked
       rect:
         serializedVersion: 2
         x: 24
@@ -686,6 +692,48 @@ TextureImporter:
       bones: []
       spriteID: c5211acf98b701a10800000000000000
       internalID: 1878136877192647260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Door_Locked_Soul
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 479a5a0960df9cc90800000000000000
+      internalID: -7148904728835544716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Door_Unlocked_Soul
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1ec180f68efc9a60800000000000000
+      internalID: 7682294919901335066
       vertices: []
       indices: 
       edges: []

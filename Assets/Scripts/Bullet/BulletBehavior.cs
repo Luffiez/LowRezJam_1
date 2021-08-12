@@ -81,6 +81,8 @@ public class BulletBehavior : Entity
     {
         hitFloor = true;
         DustManager.instance.SpawnDust(transform.position);
+        if(CameraShake.instance)
+            CameraShake.instance.TriggerShake(0.1f);
     }
 
     void FallDown()

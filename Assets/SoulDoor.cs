@@ -25,4 +25,8 @@ public class SoulDoor : Door
 
         base.Show(text);
     }
+
+    public override void ResetEntity()
+    {
+    }
 }

@@ -85,7 +85,7 @@ TextureImporter:
     second: Bullet_3
   - first:
       213: 2654019576221238413
-    second: Acid
+    second: Acid_1
   - first:
       213: 3303711320867498566
     second: Dust_1
@@ -131,6 +131,21 @@ TextureImporter:
   - first:
       213: -2711870911780617170
     second: Player_TakeDamage2
+  - first:
+      213: -1455031183793811038
+    second: Acid_2
+  - first:
+      213: -867253662475905552
+    second: Acid_3
+  - first:
+      213: 3115839451654312379
+    second: Acid_4
+  - first:
+      213: -6563610454825098157
+    second: Roof_Misc_1
+  - first:
+      213: -5301673336081596071
+    second: Roof_Misc_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -811,11 +826,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Acid
+      name: Acid_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
+        x: 0
+        y: 0
         width: 8
         height: 8
       alignment: 0
@@ -1134,7 +1149,7 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1142,6 +1157,111 @@ TextureImporter:
       bones: []
       spriteID: e240a9a16cf7d5ad0800000000000000
       internalID: -2711870911780617170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Acid_2
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a19ad0f8d0becbe0800000000000000
+      internalID: -1455031183793811038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Acid_3
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f597fd8365e6f3f0800000000000000
+      internalID: -867253662475905552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Acid_4
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb1d00d097fad3b20800000000000000
+      internalID: 3115839451654312379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roof_Misc_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3542c1c111f59e4a0800000000000000
+      internalID: -6563610454825098157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roof_Misc_2
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95142b7b03cac66b0800000000000000
+      internalID: -5301673336081596071
       vertices: []
       indices: 
       edges: []

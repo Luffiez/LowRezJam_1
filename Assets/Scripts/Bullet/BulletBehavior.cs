@@ -21,6 +21,7 @@ public class BulletBehavior : Entity
     public LayerMask floorMask;
     BoxCollider2D boxCollider;
     bool onGround;
+    bool onAcid;
     PlayerStats playerStats;
 
     // Start is called before the first frame update
@@ -45,12 +46,13 @@ public class BulletBehavior : Entity
     private void FixedUpdate()
     {
         rigidbody.velocity = velocity;
-   
-
     }
 
     private void Update()
     {
+        if (onAcid)
+            return;
+
         onGround = Physics2D.BoxCast(new Vector3(transform.position.x, transform.position.y + boxCastOffset), new Vector2(boxCollider.size.x * 0.8f, groundCastLength), 0, Vector2.down, 0, floorMask);
 
         if (!hitFloor && HitWall && onGround)
@@ -65,7 +67,8 @@ public class BulletBehavior : Entity
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (HitWall) return;
+        if (HitWall || onAcid) return;
+     
         if (!collision.CompareTag("Player"))
         {
             HitWall = true;
@@ -75,6 +78,16 @@ public class BulletBehavior : Entity
             velocity = new Vector2(0, 0);
             Invoke("FallDown", 0.5f);
         }
+    }
+    public void HitAcid()
+    {
+        Debug.Log("Hit acid!");
+        rigidbody.gravityScale = 0;
+        HitWall = false;
+        onAcid = true;
+        velocity = new Vector2(0, 0);
+        boxCollider.isTrigger = false;
+        //InteractOject.SetActive(true);
     }
 
     void HitFloor()
@@ -95,7 +108,7 @@ public class BulletBehavior : Entity
     {
         Debug.Log("Reset");
         animator.SetBool("Grow", false);
-
+        rigidbody.gravityScale = 1;
         gameObject.SetActive(false);
     }
 

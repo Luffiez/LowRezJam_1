@@ -76,7 +76,9 @@ MonoBehaviour:
   groundCastLength: 0.2
   floorMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1536
+  acidFloatBoyanceSpeed: 2
+  acidFloatHeight: 0.2
 --- !u!61 &4459300452455616140
 BoxCollider2D:
   m_ObjectHideFlags: 0

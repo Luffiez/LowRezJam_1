@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textOffset: {x: -0.5, y: 1}
-  interactableText: Open
+  interactableText: Open door
   isLocked: 1
   requiresUnlock: 1
   unlockedText: Enter

@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 5912123128231132696}
   - component: {fileID: 5912123128231132699}
   m_Layer: 0
-  m_Name: Door
+  m_Name: Key Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,10 +153,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dff8e2628cf1ea14186038b289c82d69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textOffset: {x: -0.5, y: 0.75}
+  textOffset: {x: -0.5, y: 1}
   interactableText: Open
   isLocked: 1
-  requiresUnlock: 0
+  requiresUnlock: 1
   unlockedText: Enter
   lockedText: Requires key
   lockedSprite: {fileID: 1455151499766638799, guid: dce021f60970ecf4b98cadbeff4b3782, type: 3}

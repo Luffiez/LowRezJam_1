@@ -36,6 +36,7 @@ public class ScreenFade : MonoBehaviour
                 if (alpha >= 1)
                 {
                     fade = false;
+                    alpha = 1;
                 }
             }
             else
@@ -44,6 +45,7 @@ public class ScreenFade : MonoBehaviour
                 if (alpha <= 0)
                 {
                     fade = false;
+                    alpha = 0;
                 }
             }
             canvasGroup.alpha = alpha;

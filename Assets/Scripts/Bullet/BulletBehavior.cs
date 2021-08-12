@@ -21,10 +21,12 @@ public class BulletBehavior : Entity
     public LayerMask floorMask;
     BoxCollider2D boxCollider;
     bool onGround;
+    PlayerStats playerStats;
 
     // Start is called before the first frame update
     private void Awake()
     {
+        playerStats = FindObjectOfType<PlayerStats>();
         boxCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
@@ -100,5 +102,15 @@ public class BulletBehavior : Entity
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(new Vector3(transform.position.x, transform.position.y + boxCastOffset), new Vector2(boxCollider.size.x * 0.8f, groundCastLength));
+    }
+
+    private void OnEnable()
+    {
+        playerStats.CurrentBullets--;
+    }
+
+    private void OnDisable()
+    {
+        playerStats.CurrentBullets++;
     }
 }

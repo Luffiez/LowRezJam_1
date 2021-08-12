@@ -3,7 +3,8 @@ using UnityEngine;
 public class Door : Interactable 
 {
     public bool isLocked = true;
-    public bool requiresKey = false;
+    [Tooltip("Key or Enemies slain")]
+    public bool requiresUnlock = false;
     public string unlockedText;
     public string lockedText;
     public Sprite lockedSprite, unlockedSprite;
@@ -16,6 +17,10 @@ public class Door : Interactable
     {
         base.Awake();
         doorRenderer = GetComponentInChildren<SpriteRenderer>();
+        if (isLocked)
+            doorRenderer.sprite = lockedSprite;
+        else
+            doorRenderer.sprite = unlockedSprite;
     }
 
     protected override void Show(string text)
@@ -49,7 +54,7 @@ public class Door : Interactable
 
     void UnlockAndShowText()
     {
-        if (requiresKey)// && !player.HasKey)
+        if (requiresUnlock)// && !player.HasKey)
         {
             Show(lockedText);
             return;

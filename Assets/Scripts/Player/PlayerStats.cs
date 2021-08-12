@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -7,6 +8,10 @@ public class PlayerStats : MonoBehaviour
 
     private int currentHealth;
     private int currentBullets;
+
+    public UnityEvent BulletCountChanged = new UnityEvent();
+    public UnityEvent HealthCountChanged = new UnityEvent();
+
 
     public int CurrentHealth 
     { 
@@ -32,39 +37,47 @@ public class PlayerStats : MonoBehaviour
 
     PlayerStatsUI statsUI;
 
-    private void Awake()
+    private void Start()
     {
         statsUI = PlayerStatsUI.instance;
-
-        CurrentBullets = maxBullets;
-        CurrentHealth = maxHealth;
+        ResetStats();
     }
 
     public void TakeDamage(int _damage)
     {
         CurrentHealth -= _damage;
 
-        if(CurrentHealth < 0)
+        if(CurrentHealth <= 0)
         {
             Debug.Log("Player Died.");
 
             // TODO: reload scene from somewhere else? Play death animation/sound?
             RoomManager.instance.currentRoom.Reset();
-            CurrentHealth = maxHealth;
-            CurrentBullets = maxBullets;
+            ResetStats();
             //UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
         }
+    }
+
+    protected void ResetStats()
+    {
+        CurrentHealth = maxHealth;
+        CurrentBullets = maxBullets;
     }
 
     public void IncreaseMaxBullets()
     {
         maxBullets++;
         CurrentBullets++;
+        if (BulletCountChanged != null)
+            BulletCountChanged.Invoke();
     }
 
     public void IncreaseMaxHealth()
     {
         maxHealth++;
         CurrentHealth++;
+
+        if (HealthCountChanged != null)
+            HealthCountChanged.Invoke();
     }
 }

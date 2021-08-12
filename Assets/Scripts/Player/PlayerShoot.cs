@@ -7,8 +7,7 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField]
     LayerMask layerMask;
     PlayerMovement playerMovement;
-    [SerializeField]
-    int startAmmo = 2;
+    PlayerStats playerStats;
     [SerializeField]
     Transform LeftSpawnPoint;
     [SerializeField]
@@ -23,26 +22,37 @@ public class PlayerShoot : MonoBehaviour
     List<GameObject> bulletList = new List<GameObject>();
     bool holdingFire = false; 
 
-
     private void Start()
     {
+        playerStats = GetComponent<PlayerStats>();
         playerMovement = GetComponent<PlayerMovement>();
-        for (int i = 0; i < startAmmo; i++)
+
+        SpawnMissingBullets();
+        playerStats.BulletCountChanged.AddListener(SpawnMissingBullets);
+    }
+
+    public void SpawnMissingBullets()
+    {
+        Debug.Log("Check missing bullets");
+        for (int i = bulletList.Count; i < playerStats.maxBullets; i++)
         {
             GameObject bullet = GameObject.Instantiate(bulletPrefab, Vector3.zero, Quaternion.identity);
             bulletList.Add(bullet);
             bullet.SetActive(false);
         }
     }
+
     public void Shoot(bool fire)
     {
         if (!fire)
         {
             holdingFire = false;
         }
+
         ShootTimer -= Time.fixedDeltaTime;
         if (!fire || holdingFire ) return;
         int bulletIndex = -1;
+
         for (int i = 0; i < bulletList.Count; i++)
         {
             //Debug.Log(i);
@@ -52,6 +62,7 @@ public class PlayerShoot : MonoBehaviour
                 break;
             }
         }
+
         //Debug.Log("shoot");
         if (bulletList.Count <=0  || ShootTimer > 0 || bulletIndex== -1) return;
         ShootTimer = shootTime;
@@ -73,6 +84,7 @@ public class PlayerShoot : MonoBehaviour
             bulletList[i].SetActive(false);
         }
     } 
+
     public void OnDrawGizmos()
     {
         if (playerMovement == null) return;

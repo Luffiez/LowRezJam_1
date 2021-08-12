@@ -39,7 +39,7 @@ public class RoomManager : MonoBehaviour
         //Vector2 targetPos = new Vector2(xOffset, yOffset);
         //doorConnection.otherRoom.transform.position = targetPos;
         ScreenFade.instance.Fade(1);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         doorConnection.otherRoom.Show();
 
 
@@ -50,7 +50,7 @@ public class RoomManager : MonoBehaviour
         currentRoom.Hide();
         currentRoom = doorConnection.otherRoom;
         playerShoot.DisableBullets();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
 
         ScreenFade.instance.Fade(-1);
     }

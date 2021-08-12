@@ -33,7 +33,7 @@ public class Interactable : Entity
             interactableUI.Hide();
         }
         if (playerController)
-            playerController.InteractEvent.RemoveListener(Interact);
+            playerController.InteractEvent.RemoveListener(TryInteract);
     }
 
     private void TryInteract()

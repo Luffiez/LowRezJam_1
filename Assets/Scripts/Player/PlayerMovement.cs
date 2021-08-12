@@ -28,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
     float groundCastLength = 1f;
     [SerializeField]
     float boxCastOffset = 0.5f;
+    [SerializeField]
+    bool onGround;
 
     bool isFacingLeft = false;
 
@@ -50,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
     public void MoveY(bool jump = false)
     {
         gravity = ((-2 * JumpHeight) / (JumpTime * JumpTime));
-        bool onGround = Physics2D.BoxCast(new Vector3(transform.position.x, transform.position.y + boxCastOffset), new Vector2(boxCollider.size.x, groundCastLength), 0, Vector2.down, layerMask);
+        onGround = Physics2D.BoxCast(new Vector3(transform.position.x, transform.position.y + boxCastOffset), new Vector2(boxCollider.size.x * 0.8f, groundCastLength), 0, Vector2.down, groundCastLength,layerMask);
         if (Jumping == true && onGround)
         {
             Jumping = false;
@@ -99,5 +101,14 @@ public class PlayerMovement : MonoBehaviour
     {
         isFacingLeft = !isFacingLeft;
         spriteRenderer.flipX = isFacingLeft;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (!boxCollider)
+            return;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(new Vector3(transform.position.x, transform.position.y + boxCastOffset), new Vector2(boxCollider.size.x * 0.8f, groundCastLength));
     }
 }

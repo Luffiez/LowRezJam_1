@@ -29,6 +29,10 @@ public class Enemy : Entity
         {
             DealDamage(collision.GetComponent<PlayerStats>());
         }
+        else if(collision.CompareTag("Bullet"))
+        {
+            TakeDamage(1);
+        }
     }
 
     public override void ResetEntity()

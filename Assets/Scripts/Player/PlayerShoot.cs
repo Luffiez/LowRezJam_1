@@ -45,14 +45,14 @@ public class PlayerShoot : MonoBehaviour
         int bulletIndex = -1;
         for (int i = 0; i < bulletList.Count; i++)
         {
-            Debug.Log(i);
+            //Debug.Log(i);
             if (!bulletList[i].activeSelf)
             {
                 bulletIndex = i;
                 break;
             }
         }
-        Debug.Log("shoot");
+        //Debug.Log("shoot");
         if (bulletList.Count <=0  || ShootTimer > 0 || bulletIndex== -1) return;
         ShootTimer = shootTime;
         bool faceLeft = playerMovement.IsFacingLeft;

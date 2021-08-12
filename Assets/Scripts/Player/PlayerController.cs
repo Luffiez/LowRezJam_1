@@ -57,9 +57,8 @@ public class PlayerController : MonoBehaviour
         playerMovement.MoveX(moveInput.x);
         playerMovement.MoveY(jump);
         playerShoot.Shoot(fire);
-        
-        // playerFire.Fire(fire);
     }
+
 
     #region Input Callbacks
 
@@ -67,7 +66,7 @@ public class PlayerController : MonoBehaviour
     {
         if(InteractEvent != null)
         {
-            Debug.Log("Interact");
+            //Debug.Log("Interact");
             InteractEvent.Invoke();
         }
     }

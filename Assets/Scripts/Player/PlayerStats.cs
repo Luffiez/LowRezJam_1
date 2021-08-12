@@ -12,6 +12,7 @@ public class PlayerStats : MonoBehaviour
     public UnityEvent BulletCountChanged = new UnityEvent();
     public UnityEvent HealthCountChanged = new UnityEvent();
 
+    Animator anim;
 
     public int CurrentHealth 
     { 
@@ -39,6 +40,7 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
+        anim = GetComponent<Animator>();
         statsUI = PlayerStatsUI.instance;
         ResetStats();
     }
@@ -46,7 +48,8 @@ public class PlayerStats : MonoBehaviour
     public void TakeDamage(int _damage)
     {
         CurrentHealth -= _damage;
-
+        CameraShake.instance.TriggerShake();
+        anim.SetTrigger("TakeDamage");
         if(CurrentHealth <= 0)
         {
             Debug.Log("Player Died.");

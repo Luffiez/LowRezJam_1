@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd8bd4630dd6a94aaf5430c7c35fd62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedX: 5
+  speedX: 8
   speedY: -10
   InteractOject: {fileID: 4459300452651233894}
   boxCastOffset: -0.45

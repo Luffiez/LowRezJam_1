@@ -6,8 +6,6 @@ using UnityEngine;
 //add mechaninc to buffer jump when close to ground
 public class PlayerMovement : MonoBehaviour
 {
-
-    bool OnGround = false;
     bool Jumping = false;
     [SerializeField]
     float JumpHeight = 0.0f;
@@ -22,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     float cayoteTime = 0.1f;
     float cayoteTimer = 0.0f;
     [SerializeField]
-    LayerMask layerMask;
+    LayerMask groundMask;
     BoxCollider2D boxCollider;
     [SerializeField]
     float groundCastLength = 1f;
@@ -52,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
     public void MoveY(bool jump = false)
     {
         gravity = ((-2 * JumpHeight) / (JumpTime * JumpTime));
-        onGround = Physics2D.BoxCast(new Vector3(transform.position.x, transform.position.y + boxCastOffset), new Vector2(boxCollider.size.x * 0.8f, groundCastLength), 0, Vector2.down, groundCastLength,layerMask);
+        onGround = Physics2D.BoxCast(new Vector3(transform.position.x, transform.position.y + boxCastOffset), new Vector2(boxCollider.size.x * 0.8f, groundCastLength), 0, Vector2.down, groundCastLength,groundMask);
         if (Jumping == true && onGround)
         {
             Jumping = false;

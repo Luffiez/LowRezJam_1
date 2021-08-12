@@ -74,14 +74,15 @@ MonoBehaviour:
   textOffset: {x: 0.3, y: 0.5}
   interactableText: 
   isLocked: 1
-  requiresKey: 0
+  requiresUnlock: 1
   unlockedText: Enter
   lockedText: Requires souls
-  lockedSprite: {fileID: -7148904728835544716, guid: dce021f60970ecf4b98cadbeff4b3782, type: 3}
-  unlockedSprite: {fileID: 7682294919901335066, guid: dce021f60970ecf4b98cadbeff4b3782, type: 3}
+  lockedSprite: {fileID: 1455151499766638799, guid: dce021f60970ecf4b98cadbeff4b3782, type: 3}
+  unlockedSprite: {fileID: -7618264525550213675, guid: dce021f60970ecf4b98cadbeff4b3782, type: 3}
   doorConnection:
     otherRoom: {fileID: 0}
     otherDoor: {fileID: 0}
+    connectionIsToTheLeft: 1
 --- !u!1 &7671980272118947168
 GameObject:
   m_ObjectHideFlags: 0

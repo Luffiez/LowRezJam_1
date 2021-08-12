@@ -1,15 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public class SoulDoor : Door
 {
     Room room;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         room = GetComponentInParent<Room>();
-
     }
 
     protected override void Show(string text)
@@ -21,8 +18,9 @@ public class SoulDoor : Door
         }
         else
         {
-            interactableText = enemiesAlive + "/" + room.Enemies.Count;
-            lockedText= enemiesAlive + "/" + room.Enemies.Count;
+            string enemiesLeft = enemiesAlive + "/" + room.Enemies.Count + " enemies left.";
+            interactableText = enemiesLeft;
+            lockedText= enemiesLeft;
         }
 
         base.Show(text);

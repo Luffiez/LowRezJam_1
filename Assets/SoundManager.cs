@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    public static SoundManager instance = null;
+    
     public AudioSource bgm;
     public AudioSource sfx;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     public void PlaySfx(AudioClip clip, float volume = 1f)
     {

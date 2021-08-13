@@ -72,13 +72,12 @@ MonoBehaviour:
   speedX: 8
   speedY: -10
   InteractOject: {fileID: 4459300452651233894}
+  groundHitClip: {fileID: 8300000, guid: f0040855373667c42ab68a78175e7ab1, type: 3}
   boxCastOffset: -0.45
   groundCastLength: 0.2
   floorMask:
     serializedVersion: 2
     m_Bits: 1536
-  acidFloatBoyanceSpeed: 2
-  acidFloatHeight: 0.2
 --- !u!61 &4459300452455616140
 BoxCollider2D:
   m_ObjectHideFlags: 0

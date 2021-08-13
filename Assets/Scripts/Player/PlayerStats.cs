@@ -5,6 +5,9 @@ public class PlayerStats : MonoBehaviour
 {
     public int maxHealth;
     public int maxBullets;
+    public AudioClip playerDamageClip;
+    public AudioClip playerDieClip;
+
 
     private int currentHealth;
     private int currentBullets;
@@ -13,6 +16,7 @@ public class PlayerStats : MonoBehaviour
     public UnityEvent HealthCountChanged = new UnityEvent();
 
     Animator anim;
+    SoundManager soundManager;
 
     public int CurrentHealth 
     { 
@@ -40,6 +44,7 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
+        soundManager = SoundManager.instance;
         anim = GetComponent<Animator>();
         statsUI = PlayerStatsUI.instance;
         ResetStats();
@@ -53,11 +58,14 @@ public class PlayerStats : MonoBehaviour
         if(CurrentHealth <= 0)
         {
             Debug.Log("Player Died.");
-
-            // TODO: reload scene from somewhere else? Play death animation/sound?
             RoomManager.instance.currentRoom.Reset();
             ResetStats();
-            //UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+            if (playerDieClip && soundManager)
+                soundManager.PlaySfx(playerDieClip);
+        }
+        else if (playerDamageClip && soundManager)
+        {
+            soundManager.PlaySfx(playerDamageClip);
         }
     }
 

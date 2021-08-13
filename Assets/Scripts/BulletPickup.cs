@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletPickup : Interactable
 {
+    public AudioClip pickupClip;
     PlayerStats playerStats;
 
     private void Start()
@@ -19,6 +20,7 @@ public class BulletPickup : Interactable
     void Pickup()
     {
         // TODO: display pickup message?
+        SoundManager.instance.PlaySfx(pickupClip);
         playerStats.IncreaseMaxBullets();
         Destroy(gameObject);
     }

@@ -18,12 +18,16 @@ public class PlayerShoot : MonoBehaviour
     GameObject bulletPrefab;
     [SerializeField]
     float shootTime = 0.5f;
+    public AudioClip playerShootClip;
     float ShootTimer = 0;
     List<GameObject> bulletList = new List<GameObject>();
-    bool holdingFire = false; 
+    bool holdingFire = false;
+
+    SoundManager soundManager;
 
     private void Start()
     {
+        soundManager = SoundManager.instance;
         playerStats = GetComponent<PlayerStats>();
         playerMovement = GetComponent<PlayerMovement>();
 
@@ -63,6 +67,7 @@ public class PlayerShoot : MonoBehaviour
             }
         }
 
+
         //Debug.Log("shoot");
         if (bulletList.Count <=0  || ShootTimer > 0 || bulletIndex== -1) return;
         ShootTimer = shootTime;
@@ -74,7 +79,9 @@ public class PlayerShoot : MonoBehaviour
         bullet.transform.position = spawnPosition;
         bullet.GetComponent<BulletBehavior>().SetDirection(faceLeft ? -1 : 1);
         holdingFire = true;
-        //boxcast to see if the player can shoot;
+
+        if (playerShootClip && soundManager)
+            soundManager.PlaySfx(playerShootClip);
     }
 
     public void DisableBullets() 

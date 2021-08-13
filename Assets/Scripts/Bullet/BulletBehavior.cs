@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletBehavior : Entity
@@ -14,6 +12,7 @@ public class BulletBehavior : Entity
     Rigidbody2D rigidbody;
     [SerializeField]
     GameObject InteractOject;
+    public AudioClip groundHitClip;
     Vector2 velocity;
     Animator animator;
     public float boxCastOffset;
@@ -23,6 +22,7 @@ public class BulletBehavior : Entity
     bool onGround;
     bool onAcid;
     PlayerStats playerStats;
+    SoundManager soundManager;
 
     // Start is called before the first frame update
     private void Awake()
@@ -32,12 +32,15 @@ public class BulletBehavior : Entity
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
     }
-   
+
+    private void Start()
+    {
+        soundManager = SoundManager.instance;
+    }
+
     public void SetDirection(float _direction)
     {
-        HitWall = false;
-        hitFloor = false;
-        boxCollider.isTrigger = true;
+        ResetBullet();
         animator.SetBool("Grow", true);
         InteractOject.SetActive(false);
         velocity = new Vector2(speedX * _direction, 0);   
@@ -92,6 +95,8 @@ public class BulletBehavior : Entity
 
     void HitFloor()
     {
+        if(groundHitClip && soundManager)
+            soundManager.PlaySfx(groundHitClip);
         hitFloor = true;
         DustManager.instance.SpawnDust(transform.position);
         if(CameraShake.instance)
@@ -126,8 +131,20 @@ public class BulletBehavior : Entity
         playerStats.CurrentBullets--;
     }
 
+    private void ResetBullet()
+    {
+        onAcid = false;
+        hitFloor = false;
+        HitWall = false;
+        animator.SetBool("Grow", false);
+        rigidbody.gravityScale = 1;
+        boxCollider.isTrigger = true;
+    }
+
     private void OnDisable()
     {
+        ResetBullet();
         playerStats.CurrentBullets++;
+        gameObject.SetActive(false);
     }
 }

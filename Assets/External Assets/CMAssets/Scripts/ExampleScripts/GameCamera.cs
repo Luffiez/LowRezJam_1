@@ -7,6 +7,7 @@ public class GameCamera : MonoBehaviour
 	public Vector2 offset = Vector2.zero;
     public Vector2 freeRoamBox = Vector2.one;
 	public bool followPlayer = true;
+	public float maxDistanceBeforeTeleport = 5f;
 
 	Vector2 targetPosition;
 	RoomManager roomManager;
@@ -34,7 +35,10 @@ public class GameCamera : MonoBehaviour
 			if(NeedsNewYPosition())
             {
 				targetPosition.y = player.position.y + offset.y;
-			}	
+			}
+
+			if (Vector2.Distance(transform.position, targetPosition) > maxDistanceBeforeTeleport)
+				SetCameraAtTargetPosition();
 		}
 	}
 

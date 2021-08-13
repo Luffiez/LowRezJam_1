@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,5 +43,15 @@ public class SoundManager : MonoBehaviour
             bgm.volume = timer;
             yield return new WaitForEndOfFrame();
         }
+    }
+
+    internal void ResumeBgm()
+    {
+        bgm.UnPause();
+    }
+
+    internal void PauseBgm()
+    {
+        bgm.Pause();
     }
 }

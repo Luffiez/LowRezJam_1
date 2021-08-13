@@ -154,9 +154,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textOffset: {x: -0.5, y: 0.75}
-  interactableText: Open
+  interactableText: Open door
   isLocked: 1
   requiresUnlock: 0
+  unlockClip: {fileID: 8300000, guid: 1fec7278002341943994b2d9661a8e9d, type: 3}
   unlockedText: Enter
   lockedText: Requires key
   lockedSprite: {fileID: 1455151499766638799, guid: dce021f60970ecf4b98cadbeff4b3782, type: 3}

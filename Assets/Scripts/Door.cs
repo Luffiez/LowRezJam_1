@@ -5,11 +5,12 @@ public class Door : Interactable
     public bool isLocked = true;
     [Tooltip("Key or Enemies slain")]
     public bool requiresUnlock = false;
+    public AudioClip unlockClip;
     public string unlockedText;
     public string lockedText;
     public Sprite lockedSprite, unlockedSprite;
     public DoorConnection doorConnection;
-
+    SoundManager soundManager;
 
     SpriteRenderer doorRenderer;
 
@@ -21,6 +22,11 @@ public class Door : Interactable
             doorRenderer.sprite = lockedSprite;
         else
             doorRenderer.sprite = unlockedSprite;
+    }
+
+    private void Start()
+    {
+        soundManager = SoundManager.instance;
     }
 
     protected override void Show(string text)
@@ -43,10 +49,13 @@ public class Door : Interactable
             EnterDoor();
     }
 
-    public void Unlock()
+    public void Unlock(bool playSfx = false)
     {
         if(!doorRenderer)
             doorRenderer = GetComponentInChildren<SpriteRenderer>();
+
+        if (soundManager && unlockClip && playSfx)
+            soundManager.PlaySfx(unlockClip);
 
         doorRenderer.sprite = unlockedSprite;
         isLocked = false;
@@ -60,7 +69,7 @@ public class Door : Interactable
             return;
         }
 
-        Unlock();
+        Unlock(true);
 
         Show(unlockedText);
     }

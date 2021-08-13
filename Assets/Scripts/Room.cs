@@ -65,7 +65,7 @@ public class Room : MonoBehaviour
     IEnumerator ResetRoom()
     {
         ScreenFade.instance.Fade(1);
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.5f);
         ResetRoomEntities();
         GameObject.FindGameObjectWithTag("Player").transform.position = entryPoint.position;
         ScreenFade.instance.Fade(-1);

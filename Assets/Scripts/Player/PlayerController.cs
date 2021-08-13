@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     InputAction jumpAction;
     InputAction fireAction;
     InputAction interactAction;
+    InputAction pauseAction;
 
     public bool canMove = true;
 
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public bool jump;
     public bool fire;
     public UnityEvent InteractEvent = new UnityEvent();
+    public UnityEvent PauseEvent = new UnityEvent();
 
     private void Awake()
     {
@@ -41,6 +43,18 @@ public class PlayerController : MonoBehaviour
 
         interactAction = playerInput.currentActionMap.FindAction("Interact");
         interactAction.performed += PerformedInteraction;
+
+        pauseAction = playerInput.currentActionMap.FindAction("Pause");
+        pauseAction.performed += PerformedPause;
+    }
+
+    private void PerformedPause(InputAction.CallbackContext obj)
+    {
+        if (PauseEvent != null)
+        {
+            //Debug.Log("Interact");
+            PauseEvent.Invoke();
+        }
     }
 
     private void FixedUpdate()

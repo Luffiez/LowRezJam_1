@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1379472107}
   - component: {fileID: 1379472108}
+  - component: {fileID: 7002589910804856937}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 234009419305135048, guid: dce021f60970ecf4b98cadbeff4b3782, type: 3}
+  m_Sprite: {fileID: 1878136877192647260, guid: dce021f60970ecf4b98cadbeff4b3782, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -82,6 +83,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &7002589910804856937
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379472106}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9c695fa7c1bc2804491151861c6060bd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6635058864721913006
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,6 +113,7 @@ GameObject:
   - component: {fileID: 7849770953680043682}
   - component: {fileID: 1045007333210149075}
   - component: {fileID: 1045007333210149074}
+  - component: {fileID: 7225612962577962331}
   m_Layer: 0
   m_Name: Bullet Pickup
   m_TagString: Untagged
@@ -156,3 +177,22 @@ MonoBehaviour:
   textOffset: {x: 0, y: 0.75}
   interactableText: Pickup Bullet
   pickupClip: {fileID: 8300000, guid: 3ad57e8ab2eae46488c4b1d402bf4c9f, type: 3}
+--- !u!95 &7225612962577962331
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6635058864721913006}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9c695fa7c1bc2804491151861c6060bd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

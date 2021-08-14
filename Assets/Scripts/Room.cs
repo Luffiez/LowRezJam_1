@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
+    public string roomName = "Room";
     public RoomCameraSettings roomCameraSettings;
     List<Entity> entities = new List<Entity>();
     List<Enemy> enemies = new List<Enemy>();

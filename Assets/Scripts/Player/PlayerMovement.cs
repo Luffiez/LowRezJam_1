@@ -33,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
     bool holdJump = false;
     bool isFacingLeft = false;
 
+    float jumpTimer = 0;
+
     public bool FacingLeft { get { return IsFacingLeft; } }
 
     Animator anim;
@@ -53,6 +55,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void MoveY(bool jump = false)
     {
+        if (jumpTimer > 0)
+            jumpTimer -= Time.deltaTime;
+
         if (holdJump == true && jump == false)
         {
             holdJump = false;
@@ -60,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
 
         gravity = ((-2 * JumpHeight) / (JumpTime * JumpTime));
         onGround = Physics2D.BoxCast(new Vector3(transform.position.x, transform.position.y + boxCastOffset), new Vector2(boxCollider.size.x * 0.8f, groundCastLength), 0, Vector2.down, groundCastLength,groundMask);
-        if (Jumping == true && onGround)
+        if (Jumping == true && onGround && jumpTimer <= 0)
         {
             Jumping = false;
         }
@@ -79,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
         if (jump == true && cayoteTimer > 0 && Jumping == false && !holdJump)
         {
             holdJump = true;
+            jumpTimer = 0.3f;
             Jumping = true;
             rb.velocity = new Vector2(rb.velocity.x, (2 * JumpHeight) / JumpTime);
             SoundManager.instance.PlaySfx(jumpSound);

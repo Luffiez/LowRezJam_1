@@ -40,6 +40,7 @@ public class BulletBehavior : Entity
 
     public void SetDirection(float _direction)
     {
+        rigidbody.gravityScale = 0;
         ResetBullet();
         animator.SetBool("Grow", true);
         InteractOject.SetActive(false);
@@ -77,7 +78,7 @@ public class BulletBehavior : Entity
             HitWall = true;
             boxCollider.isTrigger = false;
             //animator.SetBool("Grow", true);
-
+            InteractOject.SetActive(true);
             velocity = new Vector2(0, 0);
             Invoke("FallDown", 0.5f);
         }
@@ -85,7 +86,6 @@ public class BulletBehavior : Entity
     public void HitAcid()
     {
         Debug.Log("Hit acid!");
-        rigidbody.gravityScale = 0;
         HitWall = false;
         onAcid = true;
         velocity = new Vector2(0, 0);
@@ -105,7 +105,7 @@ public class BulletBehavior : Entity
 
     void FallDown()
     {
-        InteractOject.SetActive(true);
+        //InteractOject.SetActive(true);
         velocity = new Vector2(0, speedY);
     }
 
@@ -113,7 +113,7 @@ public class BulletBehavior : Entity
     {
         Debug.Log("Reset");
         animator.SetBool("Grow", false);
-        rigidbody.gravityScale = 1;
+        //rigidbody.gravityScale = 1;
         gameObject.SetActive(false);
     }
 
@@ -137,7 +137,7 @@ public class BulletBehavior : Entity
         hitFloor = false;
         HitWall = false;
         animator.SetBool("Grow", false);
-        rigidbody.gravityScale = 1;
+        //rigidbody.gravityScale = 1;
         boxCollider.isTrigger = true;
     }
 

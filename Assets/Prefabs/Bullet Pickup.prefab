@@ -93,7 +93,7 @@ Animator:
   m_GameObject: {fileID: 1379472106}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9c695fa7c1bc2804491151861c6060bd, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 7849770953680043682}
   - component: {fileID: 1045007333210149075}
   - component: {fileID: 1045007333210149074}
-  - component: {fileID: 7225612962577962331}
+  - component: {fileID: 7540040910202912503}
   m_Layer: 0
   m_Name: Bullet Pickup
   m_TagString: Untagged
@@ -177,7 +177,7 @@ MonoBehaviour:
   textOffset: {x: 0, y: 0.75}
   interactableText: Pickup Bullet
   pickupClip: {fileID: 8300000, guid: 3ad57e8ab2eae46488c4b1d402bf4c9f, type: 3}
---- !u!95 &7225612962577962331
+--- !u!95 &7540040910202912503
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0

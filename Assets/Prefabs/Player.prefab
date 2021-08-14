@@ -171,6 +171,7 @@ MonoBehaviour:
   groundCastLength: 0.1
   boxCastOffset: -0.5
   onGround: 0
+  jumpSound: {fileID: 8300000, guid: f4b377b5a619c9a4bb2da85e4b61485d, type: 3}
 --- !u!114 &4629079580974769452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +261,7 @@ MonoBehaviour:
     m_Bits: 1
   LeftSpawnPoint: {fileID: 4629079580487923027}
   RightSpawnPoint: {fileID: 4629079580425144350}
-  boxCastYSize: 0.15
+  boxCastSize: 0
   bulletPrefab: {fileID: 4459300452455616128, guid: a94ff3f36259f32489b6f44e25caf237, type: 3}
   shootTime: 0.5
   playerShootClip: {fileID: 8300000, guid: 461c75f3930983d40867697429d76c28, type: 3}

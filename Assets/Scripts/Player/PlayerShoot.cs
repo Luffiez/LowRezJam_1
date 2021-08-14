@@ -60,7 +60,7 @@ public class PlayerShoot : MonoBehaviour
         for (int i = 0; i < bulletList.Count; i++)
         {
             //Debug.Log(i);
-            if (!bulletList[i].activeSelf)
+            if (!bulletList[i].activeSelf && bulletList[i].GetComponent<BulletBehavior>().CanSpawn)
             {
                 bulletIndex = i;
                 break;
@@ -88,6 +88,7 @@ public class PlayerShoot : MonoBehaviour
         for (int i = 0; i < bulletList.Count; i++)
         {
             bulletList[i].SetActive(false);
+            bulletList[i].GetComponent<BulletBehavior>().CanSpawn = true;
         }
     } 
 }

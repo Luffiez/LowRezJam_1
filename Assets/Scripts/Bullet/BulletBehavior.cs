@@ -23,7 +23,8 @@ public class BulletBehavior : Entity
     bool onAcid;
     PlayerStats playerStats;
     SoundManager soundManager;
-
+    bool canSpawn = true;
+    public bool CanSpawn { get { return canSpawn; } set { canSpawn = value; } }
     // Start is called before the first frame update
     private void Awake()
     {
@@ -72,7 +73,13 @@ public class BulletBehavior : Entity
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (HitWall || onAcid) return;
-     
+
+        if (collision.CompareTag("Enemy"))
+        {
+            canSpawn = false;
+            gameObject.SetActive(false);
+        }
+
         if (!collision.CompareTag("Player"))
         {
             HitWall = true;
@@ -144,7 +151,10 @@ public class BulletBehavior : Entity
     private void OnDisable()
     {
         ResetBullet();
-        playerStats.CurrentBullets++;
+         if (canSpawn)
+        { 
+            playerStats.CurrentBullets++; 
+        } 
         gameObject.SetActive(false);
     }
 }

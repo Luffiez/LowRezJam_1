@@ -36,6 +36,7 @@ public class InteractableUI : MonoBehaviour
 
     public void Hide()
     {
+        if(interactableText != null)
         interactableText.enabled = false;
     }
 

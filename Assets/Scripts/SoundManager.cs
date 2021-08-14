@@ -12,6 +12,7 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
+        bgm.loop = true;
         instance = this;
     }
 

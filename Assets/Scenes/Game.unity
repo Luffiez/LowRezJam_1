@@ -600,6 +600,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6513041652931105476, guid: 89cb1f5faeeb3dd42950e9faed970c55, type: 3}
   m_PrefabInstance: {fileID: 58526794}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &67421394 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5912123128231132699, guid: 57cc4d27ddca19a46a509b2f72b177ee, type: 3}
+  m_PrefabInstance: {fileID: 1379887199}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dff8e2628cf1ea14186038b289c82d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &67782387
 GameObject:
   m_ObjectHideFlags: 0
@@ -26962,11 +26973,11 @@ PrefabInstance:
     - target: {fileID: 5912123128231132699, guid: 57cc4d27ddca19a46a509b2f72b177ee, type: 3}
       propertyPath: doorConnection.otherDoor
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 67421394}
     - target: {fileID: 5912123128231132699, guid: 57cc4d27ddca19a46a509b2f72b177ee, type: 3}
       propertyPath: doorConnection.otherRoom
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1063565769}
     - target: {fileID: 5912123128231132699, guid: 57cc4d27ddca19a46a509b2f72b177ee, type: 3}
       propertyPath: doorConnection.connectionIsToTheLeft
       value: 1
@@ -27327,11 +27338,11 @@ PrefabInstance:
     - target: {fileID: 7426920271275625096, guid: f3dbac78086d69c43ad4370d0a08b5d4, type: 3}
       propertyPath: doorConnection.otherDoor
       value: 
-      objectReference: {fileID: 556220593}
+      objectReference: {fileID: 1731611588}
     - target: {fileID: 7426920271275625096, guid: f3dbac78086d69c43ad4370d0a08b5d4, type: 3}
       propertyPath: doorConnection.otherRoom
       value: 
-      objectReference: {fileID: 1070692185}
+      objectReference: {fileID: 1063565769}
     - target: {fileID: 7671980271509567752, guid: f3dbac78086d69c43ad4370d0a08b5d4, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -74864,6 +74875,17 @@ MonoBehaviour:
   - {fileID: 977593924}
   objectsToHide:
   - {fileID: 431637980}
+--- !u!114 &1731611588 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5912123128231132699, guid: 57cc4d27ddca19a46a509b2f72b177ee, type: 3}
+  m_PrefabInstance: {fileID: 784683483}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dff8e2628cf1ea14186038b289c82d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1737959337
 GameObject:
   m_ObjectHideFlags: 0

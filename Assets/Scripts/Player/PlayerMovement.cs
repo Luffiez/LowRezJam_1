@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
             cayoteTimer = cayoteTime;
         }
         else
-        {
+        { 
             cayoteTimer -= Time.deltaTime;
         }
         if (jump == true && cayoteTimer > 0 && Jumping == false && !holdJump)

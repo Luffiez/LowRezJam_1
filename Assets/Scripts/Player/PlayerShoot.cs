@@ -13,7 +13,7 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField]
     Transform RightSpawnPoint;
     [SerializeField]
-    float boxCastYSize;
+    float boxCastSize;
     [SerializeField]
     GameObject bulletPrefab;
     [SerializeField]
@@ -66,14 +66,13 @@ public class PlayerShoot : MonoBehaviour
                 break;
             }
         }
-
-
-        //Debug.Log("shoot");
-        if (bulletList.Count <=0  || ShootTimer > 0 || bulletIndex== -1) return;
-        ShootTimer = shootTime;
         bool faceLeft = playerMovement.IsFacingLeft;
         Vector2 spawnPosition = faceLeft ? LeftSpawnPoint.position : RightSpawnPoint.position;
-        bool canSpawn = !Physics2D.OverlapBox(spawnPosition, new Vector2(boxCastYSize, boxCastYSize), 0,layerMask);
+
+        bool canSpawn = !Physics2D.Raycast(transform.position, faceLeft ? Vector2.left : Vector2.right, transform.position.x - LeftSpawnPoint.position.x, layerMask);
+        //Debug.Log("shoot");
+        if (bulletList.Count <=0  || ShootTimer > 0 || bulletIndex== -1 || !canSpawn) return;
+        ShootTimer = shootTime;
         GameObject bullet = bulletList[bulletIndex];
         bullet.SetActive(true);
         bullet.transform.position = spawnPosition;
@@ -91,12 +90,4 @@ public class PlayerShoot : MonoBehaviour
             bulletList[i].SetActive(false);
         }
     } 
-
-    public void OnDrawGizmos()
-    {
-        if (playerMovement == null) return;
-        bool faceLeft = playerMovement.FacingLeft;
-        Vector3 spawnPoint = faceLeft? LeftSpawnPoint.position : RightSpawnPoint.position; 
-        Gizmos.DrawCube(spawnPoint, new Vector2(boxCastYSize,boxCastYSize));
-    }
 }

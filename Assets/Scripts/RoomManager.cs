@@ -5,12 +5,12 @@ using UnityEngine;
 public class RoomManager : MonoBehaviour
 {
     public static RoomManager instance = null;
-    public float animationSpeed = 2f;
     public Room currentRoom;
     Transform playerTransform;
     List<Room> rooms = new List<Room>();
     PlayerStats playerStats;
 
+    bool isLoadingRoom = false;
     GameCamera gameCamera;
     PlayerShoot playerShoot;
 
@@ -31,15 +31,13 @@ public class RoomManager : MonoBehaviour
 
     public void LoadRoom(DoorConnection doorConnection)
     {
-        StartCoroutine(LoadRoomAnimation(doorConnection));
+        if(!isLoadingRoom)
+            StartCoroutine(LoadRoomAnimation(doorConnection));
     }
 
     IEnumerator LoadRoomAnimation(DoorConnection doorConnection)
     {
-        //float xOffset = GetXOffsetToNewRoom(currentRoom, doorConnection.otherRoom, doorConnection.connectionIsToTheLeft);
-        //float yOffset = playerTransform.position.y - doorConnection.otherDoor.transform.position.y;
-        //Vector2 targetPos = new Vector2(xOffset, yOffset);
-        //doorConnection.otherRoom.transform.position = targetPos;
+        isLoadingRoom = true;
         ScreenFade.instance.Fade(1);
         yield return new WaitForSeconds(0.3f);
         doorConnection.otherRoom.Show();
@@ -55,6 +53,9 @@ public class RoomManager : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         playerStats.ResetStats();
         ScreenFade.instance.Fade(-1);
+
+        yield return new WaitForSeconds(0.2f);
+        isLoadingRoom = false;
     }
 
     float GetXOffsetToNewRoom(Room room, Room otherRoom, bool isToTheLeft)

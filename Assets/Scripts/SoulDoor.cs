@@ -14,7 +14,7 @@ public class SoulDoor : Door
         int enemiesAlive = room.EnemiesAlive();
         if (enemiesAlive == 0)
         {
-            isLocked = false;
+            Unlock();
         }
         else
         {

@@ -26808,6 +26808,17 @@ Canvas:
   m_SortingLayerID: 1397833699
   m_SortingOrder: 1
   m_TargetDisplay: 0
+--- !u!114 &490904648 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7426920271275625096, guid: f3dbac78086d69c43ad4370d0a08b5d4, type: 3}
+  m_PrefabInstance: {fileID: 1376189409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d202a957646def4387dc4c1b03d2f46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &491730219
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -66281,11 +66292,11 @@ PrefabInstance:
     - target: {fileID: 5912123128231132699, guid: 57cc4d27ddca19a46a509b2f72b177ee, type: 3}
       propertyPath: doorConnection.otherDoor
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 490904648}
     - target: {fileID: 5912123128231132699, guid: 57cc4d27ddca19a46a509b2f72b177ee, type: 3}
       propertyPath: doorConnection.otherRoom
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1070692185}
     - target: {fileID: 5912123128231132699, guid: 57cc4d27ddca19a46a509b2f72b177ee, type: 3}
       propertyPath: doorConnection.connectionIsToTheLeft
       value: 1

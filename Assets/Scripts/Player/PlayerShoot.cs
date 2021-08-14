@@ -88,6 +88,7 @@ public class PlayerShoot : MonoBehaviour
         for (int i = 0; i < bulletList.Count; i++)
         {
             bulletList[i].SetActive(false);
+            bulletList[i].GetComponent<BulletBehavior>().CanSpawn = true;
         }
     } 
 }

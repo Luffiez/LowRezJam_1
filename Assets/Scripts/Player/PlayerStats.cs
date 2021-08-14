@@ -69,7 +69,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    protected void ResetStats()
+    public void ResetStats()
     {
         CurrentHealth = maxHealth;
         CurrentBullets = maxBullets;

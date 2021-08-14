@@ -9,7 +9,7 @@ public class GameCamera : MonoBehaviour
 	public bool followPlayer = true;
 	public float maxDistanceBeforeTeleport = 5f;
 
-	Vector2 targetPosition;
+	Vector3 targetPosition;
 	RoomManager roomManager;
 
     void Start()
@@ -19,6 +19,8 @@ public class GameCamera : MonoBehaviour
 			player = GameObject.FindGameObjectWithTag("Player").transform;
 		}
 
+		targetPosition.z = -10;
+
 		if(RoomManager.instance)
 			roomManager = RoomManager.instance;
 	}
@@ -27,8 +29,9 @@ public class GameCamera : MonoBehaviour
     {
 		if (player != null)
 		{
-			//Vector2 newPosition = transform.position;
-			if(NeedsNewXPosition())
+			targetPosition.z = -10;
+
+			if (NeedsNewXPosition())
             {
 				targetPosition.x = player.position.x + offset.x;
             }
@@ -46,7 +49,7 @@ public class GameCamera : MonoBehaviour
 	{
 		if(followPlayer)
         {
-			transform.position = Vector2.Lerp(transform.position, targetPosition, Time.deltaTime * followSpeed);
+			transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * followSpeed);
 			ClampToRoom();
         }
 	}
@@ -80,7 +83,7 @@ public class GameCamera : MonoBehaviour
 
 	void ClampToRoom()
     {
-		Vector2 vec = transform.position;
+		Vector3 vec = transform.position;
 		// TODO: read Tilemap values, largest/smallest y/x tile positions instead?
 
 		// adding/subtracting 4 to each side since camera transform is in the center, edges will be +/- 4.
@@ -93,6 +96,8 @@ public class GameCamera : MonoBehaviour
             vec.y = roomManager.currentRoom.roomCameraSettings.bottomEdge + 4;
         else if (vec.y + 4 > roomManager.currentRoom.roomCameraSettings.topEdge)
             vec.y = roomManager.currentRoom.roomCameraSettings.topEdge - 4;
+
+		vec.z = -10;
 
 		transform.position = vec;
 	}

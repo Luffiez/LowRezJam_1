@@ -114,7 +114,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.2}
+  m_Offset: {x: 0, y: -0.1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -125,7 +125,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.6}
+  m_Size: {x: 0.6, y: 0.8}
   m_EdgeRadius: 0
 --- !u!50 &4629079580974769442
 Rigidbody2D:
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 512
   LeftSpawnPoint: {fileID: 4629079580487923027}
   RightSpawnPoint: {fileID: 4629079580425144350}
   boxCastSize: 0
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 2
-  maxBullets: 0
+  maxBullets: 2
   playerDamageClip: {fileID: 8300000, guid: 73ff6de91059dca448502c1663f0bb08, type: 3}
   playerDieClip: {fileID: 8300000, guid: 4bc7659e8ba816a44825b531e517d819, type: 3}
   BulletCountChanged:

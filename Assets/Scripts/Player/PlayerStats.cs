@@ -17,7 +17,7 @@ public class PlayerStats : MonoBehaviour
 
     Animator anim;
     SoundManager soundManager;
-
+    PlayerShoot playerShoot;
     public int CurrentHealth 
     { 
         get => currentHealth;
@@ -47,6 +47,7 @@ public class PlayerStats : MonoBehaviour
         soundManager = SoundManager.instance;
         anim = GetComponent<Animator>();
         statsUI = PlayerStatsUI.instance;
+        playerShoot = GetComponent<PlayerShoot>();
         ResetStats();
     }
 
@@ -60,6 +61,7 @@ public class PlayerStats : MonoBehaviour
             Debug.Log("Player Died.");
             RoomManager.instance.currentRoom.Reset();
             ResetStats();
+            playerShoot.DisableBullets();
             if (playerDieClip && soundManager)
                 soundManager.PlaySfx(playerDieClip);
         }

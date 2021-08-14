@@ -79,8 +79,8 @@ public class BulletBehavior : Entity
             canSpawn = false;
             gameObject.SetActive(false);
         }
-
-        if (!collision.CompareTag("Player"))
+        //layer 9 is ground layer
+        if (collision.gameObject.layer == 9)
         {
             HitWall = true;
             boxCollider.isTrigger = false;

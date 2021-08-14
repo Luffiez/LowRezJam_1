@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
 
         gravity = ((-2 * JumpHeight) / (JumpTime * JumpTime));
         onGround = Physics2D.BoxCast(new Vector3(transform.position.x, transform.position.y + boxCastOffset), new Vector2(boxCollider.size.x * 0.8f, groundCastLength), 0, Vector2.down, groundCastLength,groundMask);
-        if (Jumping == true && onGround && cayoteTimer < 0)
+        if (Jumping == true && onGround)
         {
             Jumping = false;
         }
@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         {
             cayoteTimer -= Time.deltaTime;
         }
-        if (jump == true && cayoteTimer >0 && Jumping == false && !holdJump)
+        if (jump == true && cayoteTimer > 0 && Jumping == false && !holdJump)
         {
             holdJump = true;
             Jumping = true;
@@ -94,6 +94,9 @@ public class PlayerMovement : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + (gravity * Time.fixedDeltaTime));
             }
         }
+
+        Debug.Log("OnGround: " + onGround);
+        Debug.Log("Jumpin: " + Jumping);
         anim.SetBool("Jump", Jumping);
     }
 

@@ -101,8 +101,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        Debug.Log("OnGround: " + onGround);
-        Debug.Log("Jumpin: " + Jumping);
         anim.SetBool("Jump", Jumping);
     }
 

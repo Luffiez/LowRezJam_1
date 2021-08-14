@@ -10,7 +10,6 @@ public class Room : MonoBehaviour
     List<Entity> entities = new List<Entity>();
     List<Enemy> enemies = new List<Enemy>();
     public Transform entryPoint;
-
     public List<Enemy> Enemies { get => enemies; }
 
     private void Awake()

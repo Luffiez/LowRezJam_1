@@ -63747,7 +63747,7 @@ MonoBehaviour:
     rightEdge: 14
     bottomEdge: -7
     topEdge: 4
-  entryPoint: {fileID: 0}
+  entryPoint: {fileID: 784683484}
 --- !u!4 &1063565770
 Transform:
   m_ObjectHideFlags: 0
@@ -74883,6 +74883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6249faa6b0bbfa9478cd8d49db034c1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triggerOnReset: 0
   objectsToShow:
   - {fileID: 977593924}
   objectsToHide:
@@ -82394,6 +82395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6249faa6b0bbfa9478cd8d49db034c1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triggerOnReset: 1
   objectsToShow:
   - {fileID: 431637980}
   objectsToHide:

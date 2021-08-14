@@ -78,12 +78,12 @@ MonoBehaviour:
   unlockClip: {fileID: 8300000, guid: 1fec7278002341943994b2d9661a8e9d, type: 3}
   unlockedText: Enter
   lockedText: Requires souls
-  lockedSprite: {fileID: 1455151499766638799, guid: dce021f60970ecf4b98cadbeff4b3782, type: 3}
-  unlockedSprite: {fileID: -7618264525550213675, guid: dce021f60970ecf4b98cadbeff4b3782, type: 3}
+  lockedSprite: {fileID: 4586953139108963301, guid: dce021f60970ecf4b98cadbeff4b3782, type: 3}
+  unlockedSprite: {fileID: -6174763778721422776, guid: dce021f60970ecf4b98cadbeff4b3782, type: 3}
   doorConnection:
     otherRoom: {fileID: 0}
     otherDoor: {fileID: 0}
-    connectionIsToTheLeft: 1
+    connectionIsToTheLeft: 0
 --- !u!1 &7671980272118947168
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +155,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -2
-  m_Sprite: {fileID: 1455151499766638799, guid: dce021f60970ecf4b98cadbeff4b3782, type: 3}
+  m_Sprite: {fileID: 4586953139108963301, guid: dce021f60970ecf4b98cadbeff4b3782, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

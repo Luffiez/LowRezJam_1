@@ -67,7 +67,7 @@ TextureImporter:
     second: Door_Unlocked
   - first:
       213: 2491080123267611601
-    second: Enemy_1
+    second: Enemy1_1
   - first:
       213: 9051159754282972226
     second: Icon_Heart
@@ -148,10 +148,13 @@ TextureImporter:
     second: Roof_Misc_2
   - first:
       213: 4586953139108963301
-    second: Enemy2_1
+    second: SoulDoor_locked
   - first:
       213: -6174763778721422776
-    second: Enemy2_2
+    second: SoulDoor_unlocked
+  - first:
+      213: 563906999824521636
+    second: Enemy1_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -215,7 +218,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 64
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -227,7 +230,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 64
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -239,7 +242,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
-    maxTextureSize: 64
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -251,7 +254,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 64
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -667,8 +670,8 @@ TextureImporter:
       name: Door_locked
       rect:
         serializedVersion: 2
-        x: 24
-        y: 40
+        x: 32
+        y: 0
         width: 8
         height: 8
       alignment: 0
@@ -688,8 +691,8 @@ TextureImporter:
       name: Door_Unlocked
       rect:
         serializedVersion: 2
-        x: 32
-        y: 40
+        x: 40
+        y: 0
         width: 8
         height: 8
       alignment: 0
@@ -706,7 +709,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy_1
+      name: Enemy1_1
       rect:
         serializedVersion: 2
         x: 56
@@ -1273,13 +1276,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy2_1
+      name: SoulDoor_locked
       rect:
         serializedVersion: 2
         x: 32
-        y: 0
-        width: 16
-        height: 16
+        y: 8
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1294,13 +1297,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy2_2
+      name: SoulDoor_unlocked
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 16
+        x: 40
+        y: 8
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1310,6 +1313,27 @@ TextureImporter:
       bones: []
       spriteID: 8426c5dfe05de4aa0800000000000000
       internalID: -6174763778721422776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy1_2
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a995eabd6663d700800000000000000
+      internalID: 563906999824521636
       vertices: []
       indices: 
       edges: []

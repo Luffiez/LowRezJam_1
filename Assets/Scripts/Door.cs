@@ -92,5 +92,4 @@ public class DoorConnection
 {
     public Room otherRoom;
     public Door otherDoor;
-    public bool connectionIsToTheLeft;
 }

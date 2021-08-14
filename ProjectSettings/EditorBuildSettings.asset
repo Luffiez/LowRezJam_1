@@ -5,13 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
-    path: Assets/Scenes/BebsyScene.unity
-    guid: 7297961ea4af3f04590a916a62b9010e
   - enabled: 1
-    path: Assets/Scenes/Erk.unity
-    guid: 385b9fd499f5f634595e34824550dc6e
+    path: Assets/Scenes/Game.unity
+    guid: e0017696c6cdc1d43ba31a3b2768e045
   m_configObjects: {}

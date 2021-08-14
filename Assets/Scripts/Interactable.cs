@@ -75,6 +75,14 @@ public class Interactable : Entity
         }
     }
 
+    protected void OnTriggerStay2D(Collider2D collision)
+    {
+        if(!isInteractable && collision.CompareTag("Player"))
+        {
+            Show(interactableText);
+        }
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

@@ -13,6 +13,7 @@ public class RoomManager : MonoBehaviour
     bool isLoadingRoom = false;
     GameCamera gameCamera;
     PlayerShoot playerShoot;
+    UIRoomName uiRoomName;
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class RoomManager : MonoBehaviour
 
         gameCamera = FindObjectOfType<GameCamera>();
 
+        uiRoomName = FindObjectOfType<UIRoomName>();
         rooms.AddRange(GetComponentsInChildren<Room>());
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         playerShoot = playerTransform.gameObject.GetComponent<PlayerShoot>();
@@ -54,8 +56,9 @@ public class RoomManager : MonoBehaviour
         currentRoom.Hide();
         currentRoom = doorConnection.otherRoom;
         playerShoot.DisableBullets();
-        yield return new WaitForSeconds(0.3f);
         playerStats.ResetStats();
+        uiRoomName.UpdateRoomName();
+        yield return new WaitForSeconds(0.3f);
         ScreenFade.instance.Fade(-1);
 
         yield return new WaitForSeconds(0.2f);

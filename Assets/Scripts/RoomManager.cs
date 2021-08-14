@@ -35,14 +35,18 @@ public class RoomManager : MonoBehaviour
             StartCoroutine(LoadRoomAnimation(doorConnection));
     }
 
+    public void ResetRoom()
+    {
+        if (!isLoadingRoom)
+            StartCoroutine(ResetCurrentRoom());
+    }
+
     IEnumerator LoadRoomAnimation(DoorConnection doorConnection)
     {
         isLoadingRoom = true;
         ScreenFade.instance.Fade(1);
         yield return new WaitForSeconds(0.3f);
         doorConnection.otherRoom.Show();
-
-
         playerTransform.position = doorConnection.otherDoor.transform.position;
         gameCamera.SetCameraAtTargetPosition();
         doorConnection.otherDoor.Unlock();
@@ -54,6 +58,24 @@ public class RoomManager : MonoBehaviour
         playerStats.ResetStats();
         ScreenFade.instance.Fade(-1);
 
+        yield return new WaitForSeconds(0.2f);
+        isLoadingRoom = false;
+    }
+
+    IEnumerator ResetCurrentRoom()
+    {
+        isLoadingRoom = true;
+        ScreenFade.instance.Fade(1);
+        yield return new WaitForSeconds(0.3f);
+
+        currentRoom.Hide();
+        currentRoom.Show();
+        playerTransform.position = currentRoom.entryPoint.position;
+        gameCamera.SetCameraAtTargetPosition();
+        playerShoot.DisableBullets();
+        playerStats.ResetStats();
+
+        ScreenFade.instance.Fade(-1);
         yield return new WaitForSeconds(0.2f);
         isLoadingRoom = false;
     }

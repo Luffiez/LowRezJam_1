@@ -79,7 +79,7 @@ public class BulletBehavior : Entity
             boxCollider.isTrigger = false;
             //animator.SetBool("Grow", true);
             InteractOject.SetActive(true);
-            velocity = new Vector2(0, 0);
+            velocity = new Vector2(0, speedY);
             Invoke("FallDown", 0.5f);
         }
     }
@@ -106,7 +106,7 @@ public class BulletBehavior : Entity
     void FallDown()
     {
         //InteractOject.SetActive(true);
-        velocity = new Vector2(0, speedY);
+       // velocity = new Vector2(0, speedY);
     }
 
     public override void ResetEntity()
